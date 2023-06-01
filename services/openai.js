@@ -1,23 +1,21 @@
-const {
-  OPENAI_MAX_TOKENS,
-} = require('../configs');
+const { OPENAI_MAX_TOKENS } = require("../configs");
 
-const openai = require('../connections/openai');
+const openai = require("../connections/openai");
 
 async function chatAI({ content, description }) {
   const response = await openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
+    model: "gpt-3.5-turbo",
     messages: [
       {
-        role: 'user',
+        role: "user",
         content,
       },
       {
-        role: 'system',
-        content: '好的，我會遵守這個規則。',
+        role: "system",
+        content: "好的，我會遵守這個規則。",
       },
       {
-        role: 'user',
+        role: "user",
         content: description,
       },
     ],
